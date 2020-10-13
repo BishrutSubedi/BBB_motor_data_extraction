@@ -1,0 +1,3 @@
+/home/debian/estimation_parametersofantenna/build/CMakeFiles/edit_cache.dir
+/home/debian/estimation_parametersofantenna/build/CMakeFiles/rebuild_cache.dir
+/home/debian/estimation_parametersofantenna/build/CMakeFiles/main.dir

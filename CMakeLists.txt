@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 2.8)
+project(BBB_estimation)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -g -O0")
+
+if (COVERAGE)
+  set(GCC_COVERAGE_COMPILE_FLAGS "-fprofile-arcs -ftest-coverage -fPIC")
+  set(GCC_COVERAGE_LINK_FLAGS    "-lgcov")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS} ${COMMON_CXX_FLAGS} ${CMAKE_CXX_FLAGS_DEBUG}")
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}")
+endif ()
+#include_directories( /usr/include/c++/4.9)
+#include_directories(/usr/lib/arm-linux-gnueabihf)
+include_directories(/home/debian/BBBLIB/inc)
+include_directories(/home/debian/BBBLIB/src)
+file(GLOB SOURCE_FILES *h *.cpp)
+add_executable(main ${SOURCE_FILES})
+target_link_libraries(main libBlacklib.so)
